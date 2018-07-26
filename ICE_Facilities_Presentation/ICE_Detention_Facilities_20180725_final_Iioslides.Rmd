@@ -113,6 +113,9 @@ head(data)
 - The live app is hosted at: https://kashenfelter.shinyapps.io/leaflet_ice/
 - Github Repository with all code can be found here: https://github.com/kashenfelter/kashenfelter.github.io
 - The presentation pitch deck is located here: https://github.com/kashenfelter/kashenfelter.github.io/blob/master/ICE_Facilities_Presentation/ICE_Detention_Facilities_20180725C_Iioslides.Rmd
+and here:
+https://kashenfelter.github.io/
+
 
 - Thank you!  
   
