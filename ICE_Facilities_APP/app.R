@@ -17,7 +17,7 @@ server <- function(input, output, session) {
                                "Inspection Rating 2015:", data$CY15.Rating, "<br>",
                                "Capacity:", data$Capacity, "<br>",
                                "Facility Type:", data$Type.Detailed, "<br>",
-                               "Gender:", data$'Male/Female'),layerId = NULL,
+                               "Gender:", data$'Male.Female'),layerId = NULL,
                  clusterOptions = markerClusterOptions(), clusterId = NULL
       )
     
