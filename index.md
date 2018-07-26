@@ -27,7 +27,6 @@ This app reads in, processes, and prepares data from the Immigrations and Custom
 ##  Prepare R Environment
 
 ```{r setup, ECHO=TRUE}
-#knitr::opts_chunk$set(echo = FALSE)
 require(rsconnect)
 utils::packageDescription("rsconnect")
 require(utils)
@@ -56,12 +55,8 @@ library(jsonlite)
 library(curl)
 curlGlobalInit(flags = c("ssl", "win32"))
 library(packrat)
-# packrat::.snapshotImpl(".", snapshot.sources = FALSE)
-# httr::config(ssl_verifypeer = FALSE)
 httr::set_config( config(ssl_verifypeer = 0L) )
-#options(shinyapps.http.trace = TRUE)
 options(shinyapps.service_url = "https://kashenfelter.shinyapps.io")
-
 options(rsconnect.check.certificate = FALSE)
 options(rsconnect.max.bundle.size = 1000000000)
 httr::config(ssl_verifypeer = FALSE)
