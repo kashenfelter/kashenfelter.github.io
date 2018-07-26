@@ -83,25 +83,19 @@ head(data)
 
 ## Geocoding the Data
 
-
+Loop through the addresses to get the latitude and longitude of each address and add it to the
+original address data frame in new columns lat and lon
 ```{r, echo=TRUE}
-#Commented out for this presentation because of API connection limitations and slow processing speed 
-# Loop through the addresses to get the latitude and longitude of each address and add it to the
-# origAddress data frame in new columns lat and lon
-#for(i in 1:nrow(data))
-# {
-#   # Print("Working...")
-#   result <- geocode(data$addresses[i], output = "latlona", source = "dsk")
-#   data$lon[i] <- as.numeric(result[1])
-#   data$lat[i] <- as.numeric(result[2])
-#   data$geoAddress[i] <- as.character(result[3])
-# }
-# Write a CSV file containing the data to the working directory
-#write.csv(data, "ice_data_geocoded.csv", row.names=FALSE)
+for(i in 1:nrow(data))
+ {
+   # Print("Working...")
+   result <- geocode(data$addresses[i], output = "latlona", source = "dsk")
+   data$lon[i] <- as.numeric(result[1])
+   data$lat[i] <- as.numeric(result[2])
+   data$geoAddress[i] <- as.character(result[3])
+ }
 
 ```
-
-
 
 ## Visit the Live App Online
 
