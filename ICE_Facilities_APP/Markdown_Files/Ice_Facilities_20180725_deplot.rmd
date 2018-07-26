@@ -1,0 +1,50 @@
+---
+title: "Ice_Facilities_Data_VIz"
+author: "Kathy Targowski Ashenfelter"
+date: "`r Sys.Date()`"
+output:
+  html_notebook: 
+    highlight: kate
+    theme: cerulean
+  pdf_document: default
+  html_document:
+    fig.path: figure-html/
+    keep_md: yes
+runtime: shiny
+---
+
+<!-- require(rsconnect) -->
+<!-- install.packages(c("ROAuth", "colorspace", "geosphere", "tmap")) -->
+
+```{r launch_setup, echo = FALSE}
+library(utils)
+source("global.R")
+```
+
+
+```{r deploy, echo = FALSE}
+require(utils)
+library(devtools)
+require(rsconnect)
+require(RCurl)
+require(httr)
+curlGlobalInit(flags = c("ssl", "win32"))
+library(packrat)
+packrat::.snapshotImpl(".", snapshot.sources = FALSE)
+httr::config(ssl_verifypeer = FALSE)
+httr::set_config( config(ssl_verifypeer = 0L) )
+#options(shinyapps.http.trace = TRUE)
+options(shinyapps.service_url = "https://kashenfelter.shinyapps.io")
+
+options(rsconnect.check.certificate = FALSE)
+options(rsconnect.max.bundle.size = 1000000000)
+httr::config(ssl_verifypeer = FALSE)
+# options(RCurlOptions = list(cainfo = paste0( tempdir() , "/cacert.pem" ), capath=paste0(tempdir()), ssl.verifypeer = FALSE))
+# options(RCurlOptions = list(verbose = TRUE, cainfo = system.file("CurlSSL", "C://Users/kashenfelter//Documents//R//win-library//3.5//RCurl//CurlSSL/cert-rstudio.pem",  "C://Users/kashenfelter//Documents//R//win-library//3.5//RCurl//CurlSSL/cacert.pem",
+#  "C://Users/kashenfelter//Documents//R//win-library//3.5//RCurl//CurlSSL/TERENA_SSL_CA.pem",                                 capath=file.path("C://Users/kashenfelter//Documents//R//win-library//3.5//RCurl//CurlSSL//", ssl.verifypeer = FALSE))))
+Sys.unsetenv("http_proxy")
+Sys.unsetenv("https_proxy")
+rsconnect::deployApp()
+```
+
+
